@@ -1,0 +1,32 @@
+.login-wrapper {
+  padding-top: 24px;
+  height: 100vh;
+  width: 100%;
+  background-image: url(".././img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.logo {
+  float: right;
+}
+
+.login__app {
+  color: $login-text-color;
+  padding-top: 38px;
+  height: 606px;
+  border-radius: 5px;
+  background-color: $base-color;
+  text-align: center;
+}
+
+.login__app p {
+  padding-bottom: 136px;
+}
+
+.login__avatar {
+  background-color: $login-text-color;
+  border-radius: 50%;
+  height: 94px;
+  width: 94px;
+}
