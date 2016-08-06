@@ -1,32 +1,111 @@
+* {
+  box-sizing:border-box;
+}
+
 .login-wrapper {
-  padding-top: 24px;
-  height: 100vh;
-  width: 100%;
   background-image: url(".././img/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  display: table;
+  height: 100vh;
+  padding-top: 40px;
+  width: 100%;
 }
 
-.logo {
+.login-row {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.login__logo {
   float: right;
 }
 
 .login__app {
-  color: $login-text-color;
-  padding-top: 38px;
-  height: 606px;
   border-radius: 5px;
   background-color: $base-color;
+  color: $login-text-color;
+  padding-top: 38px;
+  padding-bottom: 125px;
   text-align: center;
 }
 
-.login__app p {
-  padding-bottom: 136px;
+.login__tex {
+  padding-bottom: 43px;
 }
 
 .login__avatar {
-  background-color: $login-text-color;
+  background-color: $login-bg-color;
   border-radius: 50%;
   height: 94px;
+  margin: 0 auto;
+  position: relative;
+  transform: translateY(50%);
   width: 94px;
+  z-index: 1;
+}
+
+.login__form {
+  border: 1px solid #47cbdc;
+  border-radius: 4px;
+
+  p {
+    display: inline-block;
+    margin-top: 80px;
+  }
+}
+
+.login__input-container {
+  line-height: 34px;
+  padding: 0 85px 0 51px;
+  margin: 15px 0 21px 0;
+}
+
+.login__name {
+  -webkit-box-shadow: inset 0px 2px 0px 0px rgba(199,199,199,1);
+  -moz-box-shadow: inset 0px 2px 0px 0px rgba(199,199,199,1);
+  box-shadow: inset 0px 2px 0px 0px rgba(199,199,199,1);
+  border-radius: 4px;
+  float: left;
+  margin: 0 auto;
+  max-width: 406px;
+  width: calc(100% - 38px);
+}
+
+.btn-login__closed {
+  background-color: #42cadb;
+  border-radius: 50%;
+  height: 18px;
+  margin-top: 80px;
+  width: 18px;
+}
+
+.btn-clipboard {
+  height: 14px;
+  width: 26px;
+
+  &:before {
+    content:"";
+    background-image: url("./../img/icon-clipboard.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.btn {
+  border-radius: 4px;
+  font-size: 15px;
+  height:31px;
+  text-transform: uppercase;
+  width: 118px;
+}
+
+.btn-go {
+  background-color: $login-bg-color;
+  color: #000;
+  font-size: 15px;
+  margin-bottom: 56px;
 }
