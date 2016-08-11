@@ -1,42 +1,38 @@
 $(document).foundation()
 $(document).on("ready",function(){
 
+  var btnGo = $(".btn-go");
+  var logoClick = $(".img-efi");
   var currentUser = {
     login: "efi",
     password:"",
   }
 
-  var btnGo = $(".btn-go");
-  btnGo.on("click", function(){
+  btnGo.on("click", (event) => {
     event.preventDefault();
     var inputUser = $(".login__name").val();
     currentUser.password = inputUser;
+    $(".login__name").val('');
 
-    if (!inputUser.length){
-      alert("password can not be empty");
-    } else {
-      sendLogin(currentUser);
-    }
+    (!inputUser.length) ? alert("password can not be empty") : sendLogin(currentUser);
 
   });
 
-  var logoClick = $(".img-efi");
-  logoClick.on("click",function(){
-    alert($(this).attr("src"))
-  });
+  logoClick.on("click", () => alert($(this).attr("src")));
 
   function sendLogin(currentUser){
     $.ajax({
-      type: "post",
-      data: currentUser,
-      url: "https://efigence-camp.herokuapp.com/api/login",
-      error: function(response) {
-        console.log(response.responseText);
-      },
-      success: function(response) {
-        console.log("success",
-        response);
-      }
-    });
-  };
+        url: "https://efigence-camp.herokuapp.com/api/login",
+        type: "post",
+        dataType: "json",
+        data: currentUser,
+      }).done((response) => {
+          console.log("success",
+          response);
+      }).fail((error) => {
+        $(".login-validation-info").removeClass("hide");
+        $(".login-validation-info").text(error);
+        console.log(error);
+      })
+    };
 });
