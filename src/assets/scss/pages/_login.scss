@@ -17,71 +17,102 @@
   vertical-align: middle;
 }
 
-.login__logo {
-  float: right;
-}
+.login{
 
-.login__app {
-  border-radius: 5px;
-  background-color: $base-color;
-  color: $login-text-color;
-  padding-top: 38px;
-  padding-bottom: 125px;
-  text-align: center;
-}
-
-.login__tex {
-  padding-bottom: 43px;
-}
-
-.login__avatar {
-  background-color: $login-bg-color;
-  border-radius: 50%;
-  height: 94px;
-  margin: 0 auto;
-  position: relative;
-  transform: translateY(50%);
-  width: 94px;
-  z-index: 1;
-}
-
-.login__form {
-  border: 1px solid #47cbdc;
-  border-radius: 4px;
-
-  p {
-    display: inline-block;
-    margin-top: 80px;
+  &__logo {
+    float: right;
   }
-}
 
-.login__input-container {
-  line-height: 34px;
-  padding: 0 85px 0 51px;
-  margin: 15px 0 21px 0;
-}
+  &__app {
+    border-radius: 5px;
+    background-color: $base-color;
+    color: $login-text-color;
+    padding-top: 38px;
+    padding-bottom: 125px;
+    text-align: center;
+  }
 
-.login-validation-info {
-  background-color: red;
-  border-radius: 4px;
-  color: #fff;
-  height: 34px;
-  min-width: 50px;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  max-width: 406px;
-  transform:translateX(-38px);
-}
+  &__tex {
+    padding-bottom: 43px;
+  }
 
-.login__name {
-  -webkit-box-shadow: inset 0px 2px 0px 0px rgba(199,199,199,1);
-  -moz-box-shadow: inset 0px 2px 0px 0px rgba(199,199,199,1);
-  box-shadow: inset 0px 2px 0px 0px rgba(199,199,199,1);
-  border-radius: 4px;
-  float: left;
-  margin: 0 auto;
-  max-width: 406px;
-  width: calc(100% - 38px);
+  &__avatar {
+    background-image: url("http://www.alejakomiksu.com/gfx/newsy/Armada18_news.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    border-radius: 50%;
+    height: 94px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    transform: translateY(50%);
+    width: 94px;
+    z-index: 1;
+
+    &:hover {
+      background-size: 105%;
+    }
+  }
+
+  &__form {
+    border: 1px solid #47cbdc;
+    border-radius: 4px;
+
+    &-number {
+      display: inline-block;
+      margin-top: 80px;
+    }
+  }
+
+  &__input-container {
+    line-height: 34px;
+    padding: 0 85px 0 51px;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 21px;
+    max-width: 580px;
+  }
+
+  &__name {
+    -webkit-box-shadow: inset 0px 2px 0px 0px rgba(199,199,199,1);
+    -moz-box-shadow: inset 0px 2px 0px 0px rgba(199,199,199,1);
+    box-shadow: inset 0px 2px 0px 0px rgba(199,199,199,1);
+    border-radius: 4px;
+    float: left;
+    margin: 0 auto;
+    max-width: 406px;
+    width: calc(100% - 38px);
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+
+  &__validation-info {
+    background-color: red;
+    border-radius: 4px;
+    color: #fff;
+    height: 34px;
+    min-width: 50px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    max-width: 406px;
+    position: relative;
+    transform:translateX(-38px);
+
+    &:before {
+      border-style: solid;
+      border-width: 0 6px 9px 6px;
+      border-color: transparent transparent red transparent;
+      content: "";
+      height: 0;
+      left: 20px;
+      position: absolute;
+      top: -7px;
+      width: 0;
+    }
+  }
 }
 
 .btn-login__closed {
@@ -113,6 +144,10 @@
   height:31px;
   text-transform: uppercase;
   width: 118px;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
 }
 
 .btn-go {
@@ -120,4 +155,9 @@
   color: #000;
   font-size: 15px;
   margin-bottom: 56px;
+}
+
+.btn-close-error {
+  float:right;
+  padding: 2px 5px 0;
 }
