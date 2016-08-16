@@ -27,7 +27,6 @@ $(document).on("ready",function(){
   function appearErrorInfo(info) {
     loginValidationInfo.removeClass("hide");
     loginValidationInfo.find("span").text(info);
-    setTimeout(addHide, 2000);
   }
 
   var addHide = () => { loginValidationInfo.addClass("hide") }
@@ -45,7 +44,7 @@ $(document).on("ready",function(){
         data: currentUser,
       }).done((response) => {
       }).fail((error) => {
-        appearErrorInfo(error.responseText.slice(39,60));
+        appearErrorInfo(error.responseJSON.message);
       })
     };
 });

@@ -1,0 +1,57 @@
+.no-padding {
+  padding: 0;
+}
+
+header {
+  background-color: $base-color;
+  color: $white;
+  height: 120px;
+}
+
+.header__avatar {
+  background-image: url("http://www.alejakomiksu.com/gfx/newsy/Armada18_news.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: table-cell;;
+  height: 69px;
+  margin: 0 auto;
+  vertical-align: middle;
+  width: 69px;
+}
+
+.header__name {
+  display: inline-block;
+}
+
+.nav__list {
+  display:table;
+}
+
+.nav__item {
+  display: table-cell;
+  height: 120px;
+  text-align: center;
+  width: 69px;
+  vertical-align: middle;
+
+  &:hover {
+    background-color: $black;
+    height: 120px;
+  }
+
+  i {
+    display: block;
+  }
+}
+
+.dashboard__search {
+  background-image: url(".././img/search.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+  height: 30px;
+  margin: 0 auto;
+  width: 30px;
+}
