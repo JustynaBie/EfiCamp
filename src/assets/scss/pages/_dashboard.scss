@@ -2,10 +2,19 @@
   padding: 0;
 }
 
+.dashboard__name-container {
+  transform: translateY(25%);
+  position: relative;
+}
+
 header {
   background-color: $base-color;
   color: $white;
   height: 120px;
+}
+
+.container-display-table {
+  display: table;
 }
 
 .header__avatar {
@@ -13,15 +22,107 @@ header {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  display: table-cell;;
-  height: 69px;
+  float: left;
+  height: 80px;
   margin: 0 auto;
-  vertical-align: middle;
-  width: 69px;
+  width: 80px;
+  @include center-inside
 }
 
-.header__name {
-  display: inline-block;
+.dashboard__logo {
+  float: right;
+  height: 80px;
+  width: 80px;
+  @include center-inside
+}
+
+.setting-icon {
+  font-size: 20px;
+
+  &:before {
+    display: block;
+  }
+
+  &:hover:before {
+    animation: around 2000ms infinite linear normal;
+    cursor: pointer;
+  }
+}
+
+
+@keyframes around {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.header__messages {
+  background-color: $accent-color;
+  border-radius: 4px;
+  padding: 10px 0;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  width: 150px;
+
+  &:before {
+    border-style: solid;
+    border-width: 0 11px 11px 7px;
+    border-color: transparent transparent $accent-color transparent;
+    content: "";
+    height: 0;
+    left: 15px;
+    position: absolute;
+    top: -7px;
+    width: 0;
+  }
+
+  p {
+    font-size: 13px;
+  }
+
+}
+
+.header__message {
+  background-color: $base-color;
+  border-radius: 3px;
+  font-size: 11px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  padding: 5px 0;
+  width: 120px;
+}
+
+.envelope-icon {
+  position: relative;
+  font-size: 20px;
+
+  &:after {
+    content:"2";
+    color: $white;
+    background-color: $accent-color;
+    border-radius: 50%;
+    display: block;
+    font-size: 13px;
+    height: 15px;
+    left: 8px;
+    position: absolute;
+    text-align: center;
+    top: -3px;
+    width: 15px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+.setting-icon {
+  padding-left: 10px;
 }
 
 .nav__list {
@@ -31,27 +132,38 @@ header {
 .nav__item {
   display: table-cell;
   height: 120px;
+  font-size: 12px;
   text-align: center;
+  text-transform: uppercase;;
   width: 69px;
   vertical-align: middle;
 
   &:hover {
     background-color: $black;
+    cursor: pointer;
     height: 120px;
   }
 
   i {
     display: block;
+    font-size: 25px;
   }
 }
 
-.dashboard__search {
-  background-image: url(".././img/search.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  display: inline-block;
-  height: 30px;
-  margin: 0 auto;
-  width: 30px;
+.power-icon,
+.search-icon {
+  font-size: 25px;
+}
+
+.search-icon {
+  padding-right: 10px;
+}
+
+.power-icon {
+  color: $accent-color;
+}
+
+.dashboard__search-container {
+  padding-top: 40px;
+  text-align: right;
 }

@@ -1,43 +1,49 @@
 <header>
-  <div class="row no-padding">
-    <div class="small-1 columns">
+  <div class="row">
+    <div class="small-1 columns no-padding">
       <a href="#">
-        <img class ="img-efi" src="../assets/img/logo.png" class="dashboard__logo" alt="logo Efi3">
+        <img src="../assets/img/logo.png" class="dashboard__logo" alt="logo Efi3">
       </a>
     </div>
-    <div class="small-1 columns">
+    <div class="small-1 columns no-padding">
       <div class="header__avatar"></div>
     </div>
-    <div class="small-3 columns">
+    <div class="small-3 columns dashboard__name-container">
       <h4 class="header__name">Justyna Bielecka</h4>
-      <i class="fa fa-envelope" aria-hidden="true"></i>
-      <i class="fa fa-star-o" aria-hidden="true"></i>
+      <i class="fa fa-envelope envelope-icon" aria-hidden="true"></i>
+      <i class="fa fa-cog setting-icon" aria-hidden="true"></i>
+      <div class="header__messages hide">
+        <p>your messages</p>
+        <div class="header__message">first message</div>
+        <div class="header__message">second message</div>
+      </div>
     </div>
     <div class="small-4 columns">
-      <nav>
+      <nav >
         <ul class="nav__list">
           <li class="nav__item">
-            <i class="fa fa-home" aria-hidden="true"></i>
+            <i class="fa fa-home nav__icon" aria-hidden="true"></i>
             home
           </li>
           <li class="nav__item">
-            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-area-chart nav__icon" aria-hidden="true"></i>
             analyse
           </li>
           <li class="nav__item">
-            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-calendar-o nav__icon" aria-hidden="true"></i>
             plan
           </li>
           <li class="nav__item">
-            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-credit-card nav__icon" aria-hidden="true"></i>
             earn
           </li>
         </ul>
       </nav>
     </div>
-    <div class="small-3 columns">
-      <div class="dashboard__search">
-      </div>
-      <i class="fa fa-power-off" aria-hidden="true"></i>
+    <div class="small-3 columns dashboard__search-container">
+      <i class="fa fa-search search-icon" aria-hidden="true"></i>
+      <a href="/login.html">
+        <i class="fa fa-power-off power-icon" aria-hidden="true"></i>
+      </a>
     </div>
 </header>

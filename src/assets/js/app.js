@@ -5,6 +5,7 @@ $(document).on("ready",function(){
   var btnGo = $(".btn-go");
   var logoClick = $(".img-efi");
   var loginValidationInfo = $(".login__validation-info");
+  var envelopeIcon = $(".envelope-icon");
 
  //  Objects
   var currentUser = {
@@ -43,8 +44,13 @@ $(document).on("ready",function(){
         dataType: "json",
         data: currentUser,
       }).done((response) => {
+        window.location.href='/dashboard.html';
       }).fail((error) => {
         appearErrorInfo(error.responseJSON.message);
       })
     };
+
+  envelopeIcon.on("click", () => {
+    $(".header__messages").toggleClass("hide");
+  })
 });
