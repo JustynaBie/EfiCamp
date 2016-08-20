@@ -1,11 +1,14 @@
 $(document).foundation()
 $(document).on("ready",function(){
 
-  // Variables
+  // Login panel variables
   var btnGo = $(".btn-go");
   var logoClick = $(".img-efi");
   var loginValidationInfo = $(".login__validation-info");
+  // Dashboard variables
   var envelopeIcon = $(".envelope-icon");
+  var searchIcon = $(".search-icon");
+  var dashboardAvatar = $(".dashboard__avatar");
 
  //  Objects
   var currentUser = {
@@ -28,6 +31,7 @@ $(document).on("ready",function(){
   function appearErrorInfo(info) {
     loginValidationInfo.removeClass("hide");
     loginValidationInfo.find("span").text(info);
+    setTimeout(addHide, 2000);
   }
 
   var addHide = () => { loginValidationInfo.addClass("hide") }
@@ -50,7 +54,21 @@ $(document).on("ready",function(){
       })
     };
 
+  // Dashboard
+  var toggleElement = (element) =>  {
+    element.toggleClass("hide");
+  };
+
   envelopeIcon.on("click", () => {
-    $(".header__messages").toggleClass("hide");
-  })
+    toggleElement($(".dashboard__messages"));
+  });
+
+  searchIcon.on("click", () => {
+    toggleElement($(".dashboard__search-window"));
+  });
+
+  dashboardAvatar.on("click", () => {
+    toggleElement($(".client-info"));
+  });
+
 });

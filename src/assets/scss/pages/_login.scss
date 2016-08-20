@@ -58,16 +58,19 @@
   &__form {
     border: 1px solid #47cbdc;
     border-radius: 4px;
+    margin: 0 auto;
+    width: 90%;
 
     &-number {
       display: inline-block;
+      font-weight: bold;
       margin-top: 80px;
     }
   }
 
   &__input-container {
     line-height: 34px;
-    padding: 0 85px 0 51px;
+    padding: 0 51px 0 51px;
     margin: 0 auto;
     margin-top: 15px;
     margin-bottom: 21px;
@@ -81,8 +84,7 @@
     border-radius: 4px;
     float: left;
     margin: 0 auto;
-    max-width: 406px;
-    width: calc(100% - 38px);
+    width: 90%;
 
     &:hover {
       background-color: #e0e0e0;
@@ -93,13 +95,12 @@
     background-color: red;
     border-radius: 4px;
     color: $white;
-    height: 34px;
+    min-height: 34px;
     min-width: 50px;
     margin: 0 auto;
     margin-bottom: 20px;
-    max-width: 406px;
     position: relative;
-    transform:translateX(-38px);
+    width: 80%;
 
     &:before {
       border-style: solid;
@@ -160,4 +161,21 @@
 .btn-close-error {
   float:right;
   padding: 2px 5px 0;
+}
+
+.login__menu {
+  padding-top: 21px;
+  margin: 0;
+
+  &__item {
+    display: inline-block;
+    color: $white;
+    font-size: 11px;
+    padding-right: 18px;
+    text-transform: uppercase;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

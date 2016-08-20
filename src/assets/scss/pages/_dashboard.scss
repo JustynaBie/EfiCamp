@@ -1,39 +1,42 @@
 .no-padding {
   padding: 0;
 }
+.dashboard {
 
-.dashboard__name-container {
-  transform: translateY(25%);
-  position: relative;
-}
+  &__header {
+    background-color: $base-color;
+    color: $white;
+    height: 120px;
+  }
 
-header {
-  background-color: $base-color;
-  color: $white;
-  height: 120px;
-}
+  &__name-container {
+    transform: translateY(25%);
+    position: relative;
+  }
 
-.container-display-table {
-  display: table;
-}
+  &__avatar {
+    background-image: url("http://www.alejakomiksu.com/gfx/newsy/Armada18_news.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    float: left;
+    height: 80px;
+    margin: 0 auto;
+    width: 80px;
+    transform: translateY(25%);
 
-.header__avatar {
-  background-image: url("http://www.alejakomiksu.com/gfx/newsy/Armada18_news.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  float: left;
-  height: 80px;
-  margin: 0 auto;
-  width: 80px;
-  @include center-inside
-}
+    &:hover {
+      cursor: pointer;
+      zoom: 105%;
+    }
+  }
 
-.dashboard__logo {
-  float: right;
-  height: 80px;
-  width: 80px;
-  @include center-inside
+  &__logo {
+    float: right;
+    height: 80px;
+    width: 80px;
+    transform: translateY(25%)
+  }
 }
 
 .setting-icon {
@@ -59,7 +62,12 @@ header {
   }
 }
 
-.header__messages {
+.dashboard__client-info {
+  position: relative;
+}
+
+.dashboard__messages,
+.client-info {
   background-color: $accent-color;
   border-radius: 4px;
   padding: 10px 0;
@@ -86,7 +94,12 @@ header {
 
 }
 
-.header__message {
+.client-info {
+  top:108px;
+}
+
+.dashboard__message,
+.client__data {
   background-color: $base-color;
   border-radius: 3px;
   font-size: 11px;
@@ -125,37 +138,50 @@ header {
   padding-left: 10px;
 }
 
-.nav__list {
-  display:table;
-}
+.dashboard__menu{
 
-.nav__item {
-  display: table-cell;
-  height: 120px;
-  font-size: 12px;
-  text-align: center;
-  text-transform: uppercase;;
-  width: 69px;
-  vertical-align: middle;
-
-  &:hover {
-    background-color: $black;
-    cursor: pointer;
-    height: 120px;
+  &__list {
+    display:table;
   }
 
-  i {
-    display: block;
-    font-size: 25px;
+  &__item {
+    display: table-cell;
+    height: 120px;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;;
+    width: 69px;
+    vertical-align: middle;
+
+    &:hover {
+      background-color: $black;
+      cursor: pointer;
+      height: 120px;
+    }
+
+    i {
+      display: block;
+      font-size: 25px;
+      margin-bottom: 20%;
+    }
+
+    a {
+      color: $white;
+    }
   }
 }
 
 .power-icon,
 .search-icon {
   font-size: 25px;
+
+  &:hover {
+    color: $dashboard-icon-hover;
+  }
 }
 
 .search-icon {
+  cursor: pointer;
   padding-right: 10px;
 }
 
@@ -163,7 +189,15 @@ header {
   color: $accent-color;
 }
 
-.dashboard__search-container {
+.dashboard__search {
+  &-container {
   padding-top: 40px;
   text-align: right;
+  }
+
+  &-window {
+    display: inline-block;
+    height: 30px;
+    width: 70%;
+  }
 }
