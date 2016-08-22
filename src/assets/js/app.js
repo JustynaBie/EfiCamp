@@ -5,6 +5,7 @@ $(document).on("ready",function(){
   var btnGo = $(".btn-go");
   var logoClick = $(".img-efi");
   var loginValidationInfo = $(".login__validation-info");
+  var loginInput = $(".login__name");
   // Dashboard variables
   var envelopeIcon = $(".envelope-icon");
   var searchIcon = $(".search-icon");
@@ -19,14 +20,23 @@ $(document).on("ready",function(){
   logoClick.on("click", () => alert($(this).attr("src")));
 
   btnGo.on("click", (event) => {
+    validationPassword();
+  });
+
+  loginInput.keypress(() => {
+    if(event.which == 13) {
+      validationPassword();
+    }
+});
+
+  function validationPassword() {
     event.preventDefault();
-    let inputUser = $(".login__name").val();
+    let inputUser = loginInput.val();
     currentUser.password = inputUser;
-    $(".login__name").val('');
+    loginInput.val("");
 
     (!inputUser.length) ? appearErrorInfo("password can not be empty") : sendLogin(currentUser);
-
-  });
+  };
 
   function appearErrorInfo(info) {
     loginValidationInfo.removeClass("hide");

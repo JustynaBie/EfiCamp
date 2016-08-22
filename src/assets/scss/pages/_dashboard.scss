@@ -148,6 +148,7 @@
     display: table-cell;
     height: 120px;
     font-size: 12px;
+    position: relative;
     text-align: center;
     text-transform: uppercase;;
     width: 69px;
@@ -168,6 +169,23 @@
     a {
       color: $white;
     }
+
+
+  }
+}
+
+.menu__item--selected {
+  background-color: $black;
+
+  &:after {
+    content: "";
+    background-color: $black;
+    border-radius: 50%;
+    height: 14px;
+    position: absolute;
+    left: calc(50% - 7px);
+    top: 112px;
+    width: 14px;
   }
 }
 
