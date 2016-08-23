@@ -61,10 +61,10 @@ $(document).on("ready",function(){
         window.location.href='/dashboard.html';
       }).fail((error) => {
         appearErrorInfo(error.responseJSON.message);
-      })
+      });
     };
 
-  // Dashboard
+  // Dashboard header
   var toggleElement = (element) =>  {
     element.toggleClass("hide");
   };
@@ -80,5 +80,33 @@ $(document).on("ready",function(){
   dashboardAvatar.on("click", () => {
     toggleElement($(".client-info"));
   });
+
+  // Dashboard financial-data
+  var currentUrl = "https://efigence-camp.herokuapp.com/api/data/";
+  var balance = $("#dashboard-balance");
+
+  takeData(currentUrl, "summary", function(response) {
+    $("#dashboard-balance").text(response.content[0].balance + " PLN");
+  });
+
+  takeData(currentUrl, "history", function(response) {
+    $("#dashboard-availabe-founds").text(response.content[0].amount + " PLN");
+  });
+
+  takeData(currentUrl, "products", function(response) {
+    $("#dashboard-payments").text(response.content[0].amount + " PLN");
+  });
+
+  function takeData(currentUrl, urlId, callback ){
+    $.ajax({
+        url: currentUrl + urlId,
+        type: "get",
+        dataType: "json"
+      }).done((response) => {
+        callback(response);
+      }).fail((error) => {
+        console.log(error);
+      });
+    };
 
 });
