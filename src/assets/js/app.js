@@ -86,15 +86,18 @@ $(document).on("ready",function(){
   var balance = $("#dashboard-balance");
 
   takeData(currentUrl, "summary", function(response) {
-    $("#dashboard-balance").text(response.content[0].balance + " PLN");
+    let newValue = sortNumber(response.content[0].balance)
+    $("#dashboard-balance").text(newValue);
   });
 
   takeData(currentUrl, "history", function(response) {
-    $("#dashboard-availabe-founds").text(response.content[0].amount + " PLN");
+    let newValue = sortNumber(response.content[0].amount)
+    $("#dashboard-availabe-founds").text(newValue);
   });
 
   takeData(currentUrl, "products", function(response) {
-    $("#dashboard-payments").text(response.content[0].amount + " PLN");
+    let newValue = sortNumber(response.content[0].amount)
+    $("#dashboard-payments").text(newValue);
   });
 
   function takeData(currentUrl, urlId, callback ){
@@ -107,6 +110,62 @@ $(document).on("ready",function(){
       }).fail((error) => {
         console.log(error);
       });
+  };
+
+  // Sort number
+  function sortNumber(input){
+    let count = 0;
+    let newNumber = [];
+    let decimalArray = [];
+    let decimalString ;
+    let newArray =[];
+    let stringArraySpaces;
+    let validNumber;
+    let numString;
+
+    displayNumber(input);
+
+    function displayNumber(value){
+
+      numString = value.toString();
+
+      displayDecimal(numString);
+
+      let stringArray = numString.split("");
+
+      stringArraySpaces = stringArray.reduceRight(function(newArray,element) {
+        if(count === 3) {
+          newArray.push(" ");
+          count = 0;
+        }
+        newArray.push(element);
+        count++
+        return newArray;
+        }, []);
+
+      stringArraySpaces.reverse().push(",");
+      let newString = stringArraySpaces.join("");
+      validNumber = newString.concat(decimalString);
+      return validNumber;
     };
+
+    function displayDecimal(value) {
+      if(value.indexOf(".")>-1) {
+        let arrayDivided = value.split(".");
+        numString = arrayDivided[0];
+        decimalArray = arrayDivided[1].split("");
+        if(decimalArray.length === 1){
+          decimalArray.push("0");
+        }
+       }else{
+           decimalArray.push("00");
+       }
+       decimalString = decimalArray.join("");
+    };
+
+    return validNumber;
+  };
+
+
 
 });

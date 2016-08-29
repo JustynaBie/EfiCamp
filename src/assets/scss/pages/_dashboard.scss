@@ -220,6 +220,72 @@
   }
 }
 
-.financial-data {
-  background-color: #f2f2f2;
+.finance {
+  background-color: $financial-life-color;
+}
+
+.finance__data-title {
+  margin-bottom: 0;
+}
+
+.finance__add {
+  font-weight: lighter;
+  padding-top: 20px;
+  text-align: right;
+
+  &__title{
+    display: inline;
+    padding-right: 5%;
+  }
+}
+
+.finance__data-amount {
+  display: inline;
+  font-weight: bold;
+}
+
+.btn-bank,
+.btn-payment {
+  color: $white;
+  background-color: $base-color;
+  height:30px;
+  text-transform: uppercase;
+  width: 80px;
+  width: 30%;
+}
+
+.btn-bank {
+  margin-right: 5%;
+}
+
+.account-analysis {
+  display: inline;
+  margin-right: 5%;
+}
+
+.account-analysis__container {
+  text-align: right;
+}
+
+.on-off-container{
+  background-color: $white;
+  display: inline-block;
+  height: 34px;
+  width: 80px;
+}
+
+.btn-off,
+.btn-on {
+  height: 30px;
+  text-transform: uppercase;
+  width: 38px;
+}
+
+.btn-on {
+  background-color: $btn-on-color;
+  transform: translateX(-2px)translateY(2px);
+}
+
+.btn-off {
+  transform: translateY(2px);
 }

@@ -60,35 +60,38 @@
         <i class="fa fa-power-off power-icon" aria-hidden="true"></i>
       </a>
     </div>
-</header>
-<main class="financial-data">
-  <div class="row">
-      <div class="small-9 columns">
-        <div class="row">
-          <div class="small-12 columns">
-            <h1>Finance life stream</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="small-4 columns">
-            <p>Balance</p>
-            <p id="dashboard-balance"></p>
-          </div>
-          <div class="small-4 columns">
-            <p>Available funds</p>
-            <p id="dashboard-availabe-founds"></p>
-          </div>
-          <div class="small-4 columns">
-            <p>Schedule payments</p>
-            <p id="dashboard-payments"></p>
-          </div>
-        </div>
-      </div>
-      <div class="small-3 columns">
-        <button>Add</button>
-        <button>bank</button>
-        <button>payment</button>
-      </div>
   </div>
-
+</header>
+<main class="finance">
+  <div class="row">
+    <div class="small-9 columns">
+        <h1>Finance life stream</h1>
+    </div>
+    <div class="small-3 columns finance__add">
+      <p class="finance__add__title">Add</p>
+      <button class="btn-bank">bank</button>
+      <button class="btn-payment">payment</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-3 columns">
+      <p class="finance__data-title">Balance</p>
+      <p class="finance__data-amount" id="dashboard-balance"></p><span> PLN</span>
+    </div>
+    <div class="small-3 columns">
+      <p class="finance__data-title">Available funds</p>
+      <p class="finance__data-amount" id="dashboard-availabe-founds"></p><span> PLN</span>
+    </div>
+    <div class="small-3 columns">
+      <p class="finance__data-title">Schedule payments</p>
+      <p class="finance__data-amount" id="dashboard-payments"></p><span> PLN</span>
+    </div>
+    <div class="small-3 columns account-analysis__container">
+      <p class="account-analysis">Account analysis</p>
+      <div class="on-off-container">
+        <button class="btn-off">off</button>
+        <button class="btn-on">on</button>
+      </div>
+    </div>
+  </div>
 </main>
