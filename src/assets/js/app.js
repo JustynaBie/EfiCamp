@@ -100,6 +100,13 @@ $(document).on("ready",function(){
     $("#dashboard-payments").text(newValue);
   });
 
+  takeData(currentUrl, "products", function(response) {
+    console.log(response.content[0].type)
+    // let newValue = sortNumber(response.content[0].type)
+    $("#wallets").text(response.content[0].type + '[' + response.content[0].elements + ']');
+    $("#wallets-amounts").text(response.content[0].amount + response.content[0].currency)
+  });
+
   function takeData(currentUrl, urlId, callback ){
     $.ajax({
         url: currentUrl + urlId,

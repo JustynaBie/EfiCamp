@@ -289,3 +289,29 @@
 .btn-off {
   transform: translateY(2px);
 }
+
+.product-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.products-container {
+  background-color: $white;
+  border-radius: 5px;
+  display: inline-block;
+  height: 80px;
+  width: 210px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.history-container {
+  background-color: $white;
+  border-radius: 5px;
+  height: 320px;
+  width: 95%;
+}
