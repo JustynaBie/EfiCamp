@@ -119,6 +119,43 @@ $(document).on("ready",function(){
       });
   };
 
+  // History panel
+
+  function makeHistoryRecord(transactionData){
+  
+    let newLi = $("<li>");
+    let dateContainer = $("<div class='history__container history__date'></div>").text(transactionData.date);
+    let descriptionContainer = $("<div class='history__container history__description'></div>");
+    let historyDescription = $("<p></p>").text(transactionData.description);
+    let categoryDescription = $("<p></p>").text(transactionData.category);
+    let amountContainer = $("<div class='history__container history__amount'></div>");
+    let ifOutcome = $("<span>outcome</span>").text(transactionData.status);
+    let amountP = $("<span>amount</span>").text(transactionData.amount);
+    let currencySpan = $("<span>currency</span>").text(transactionData.currency);
+
+    newLi.append(dateContainer);
+    newLi.append(descriptionContainer);
+    newLi.append(amountContainer);
+    descriptionContainer.append(historyDescription);
+    descriptionContainer.append(categoryDescription);
+    amountContainer.append(ifOutcome);
+    amountContainer.append(amountP );
+    amountContainer.append(currencySpan);
+    $("#history-list").append(newLi);
+  };
+
+  let transaction1 = {
+    date: "2068-07-08",
+    description: "solaisodnsf",
+    category: "Gas",
+    currency: "EUR",
+    amount: 98,
+    status: "outcome"
+  };
+
+makeHistoryRecord(transaction1);
+
+
   // Sort number
   function sortNumber(input){
     let count = 0;

@@ -278,7 +278,7 @@
 .btn-on {
   height: 30px;
   text-transform: uppercase;
-  width: 38px;
+  width: 37px;
 }
 
 .btn-on {
@@ -309,9 +309,45 @@
   }
 }
 
-.history-container {
+.history-outside {
   background-color: $white;
   border-radius: 5px;
   height: 320px;
   width: 95%;
+
+  ul{
+    list-style: none;
+  }
+}
+
+.history {
+
+  &__container {
+    border-bottom: 1px solid #d9dada;
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__date {
+    float: left;
+    width: 16%;
+  }
+
+  &__description {
+    display: flex;
+    float: left;
+    flex-direction: column;
+    width: 54%;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__amount {
+    float: left;
+    width: 30%;
+  }
 }
