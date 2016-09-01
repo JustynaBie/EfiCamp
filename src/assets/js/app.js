@@ -86,25 +86,30 @@ $(document).on("ready",function(){
   var balance = $("#dashboard-balance");
 
   takeData(currentUrl, "summary", function(response) {
-    let newValue = sortNumber(response.content[0].balance)
-    $("#dashboard-balance").text(newValue);
-  });
-
-  takeData(currentUrl, "history", function(response) {
-    let newValue = sortNumber(response.content[0].amount)
-    $("#dashboard-availabe-founds").text(newValue);
-  });
-
-  takeData(currentUrl, "products", function(response) {
-    let newValue = sortNumber(response.content[0].amount)
-    $("#dashboard-payments").text(newValue);
+    let balanceValue = sortNumber(response.content[0].balance);
+    $("#dashboard-balance").text(balanceValue);
+    let fundsValue = sortNumber(response.content[0].funds);
+    $("#dashboard-availabe-founds").text(fundsValue);
+    let paymentsValue = sortNumber(response.content[0].funds);
+    $("#dashboard-payments").text(paymentsValue);
   });
 
   takeData(currentUrl, "products", function(response) {
-    console.log(response.content[0].type)
-    // let newValue = sortNumber(response.content[0].type)
-    $("#wallets").text(response.content[0].type + '[' + response.content[0].elements + ']');
-    $("#wallets-amounts").text(response.content[0].amount + response.content[0].currency)
+    let products = response.content;
+    $("#wallets").text(products[0].type + ' [' + products[0].elements + ']');
+    $("#wallets-amounts").text(products[0].amount + products[0].currency);
+
+    $("#deposits").text(products[1].type + ' [' + products[1].elements + ']');
+    $("#deposits-amounts").text(products[1].amount + products[1].currency);
+
+    $("#accounts").text(products[2].type);
+    $("#accounts-amounts").text(products[2].amount + products[2].currency);
+
+    $("#funds").text(products[3].type + ' [' + products[3].elements + ']');
+    $("#funds-amounts").text(products[3].amount + products[3].currency);
+
+    $("#loans").text(products[4].type);
+    $("#loans-amounts").text(products[4].amount + products[4].currency);
   });
 
   function takeData(currentUrl, urlId, callback ){
@@ -121,17 +126,33 @@ $(document).on("ready",function(){
 
   // History panel
 
-  function makeHistoryRecord(transactionData){
-  
+  takeData(currentUrl, "history", function(response) {
+    let historyData = (response.content);
+    historyData.forEach(makeHistoryRecord);
+    console.log(historyData);
+  });
+
+
+  function makeHistoryRecord(transactionData, index, array){
+
+    let convertedCurrency = sortNumber(transactionData.amount);
+    let convertedDate = convertDate(transactionData.date);
+
     let newLi = $("<li>");
-    let dateContainer = $("<div class='history__container history__date'></div>").text(transactionData.date);
+    let dateContainer = $("<div class='history__container history__date'></div>").text(convertedDate);
     let descriptionContainer = $("<div class='history__container history__description'></div>");
     let historyDescription = $("<p></p>").text(transactionData.description);
     let categoryDescription = $("<p></p>").text(transactionData.category);
     let amountContainer = $("<div class='history__container history__amount'></div>");
-    let ifOutcome = $("<span>outcome</span>").text(transactionData.status);
-    let amountP = $("<span>amount</span>").text(transactionData.amount);
-    let currencySpan = $("<span>currency</span>").text(transactionData.currency);
+    let ifOutcome = $("<span></span>");
+    let amountP = $("<span></span>").text(convertedCurrency);
+    let currencySpan = $("<span></span>").text(transactionData.currency);
+
+    if (transactionData.status === "outcome") {
+      ifOutcome.text("-");
+    } else {
+      amountP.addClass("text-green");
+    }
 
     newLi.append(dateContainer);
     newLi.append(descriptionContainer);
@@ -144,16 +165,22 @@ $(document).on("ready",function(){
     $("#history-list").append(newLi);
   };
 
-  let transaction1 = {
-    date: "2068-07-08",
-    description: "solaisodnsf",
-    category: "Gas",
-    currency: "EUR",
-    amount: 98,
-    status: "outcome"
-  };
-
-makeHistoryRecord(transaction1);
+  function convertDate(date) {
+    let month = date.substring(5,7);
+    let day = date.substring(8,10);
+    return day + '.' + month;
+  }
+//
+//   let transaction1 = {
+//     date: "2068-07-08",
+//     description: "solaisodnsf",
+//     category: "Gas",
+//     currency: "EUR",
+//     amount: 98,
+//     status: "outcome"
+//   };
+//
+// makeHistoryRecord(transaction1);
 
 
   // Sort number

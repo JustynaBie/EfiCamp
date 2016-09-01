@@ -225,6 +225,7 @@
 }
 
 .finance__data-title {
+  font-size: 20px;
   margin-bottom: 0;
 }
 
@@ -241,6 +242,7 @@
 
 .finance__data-amount {
   display: inline;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -313,10 +315,19 @@
   background-color: $white;
   border-radius: 5px;
   height: 320px;
+  margin-bottom: 60px;
+  overflow: hidden;
+  overflow-y: auto;
   width: 95%;
 
-  ul{
+  ul {
+    margin-left: 0;
     list-style: none;
+  }
+
+  li {
+    display: table;
+    width: 100%;
   }
 }
 
@@ -350,4 +361,8 @@
     float: left;
     width: 30%;
   }
+}
+
+.text-green {
+  color: $btn-on-color;
 }
