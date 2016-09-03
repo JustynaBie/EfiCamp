@@ -294,7 +294,6 @@
 
 .product-container {
   display: flex;
-  justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
 }
@@ -304,10 +303,66 @@
   border-radius: 5px;
   display: inline-block;
   height: 80px;
-  width: 210px;
+  padding-top: 16px;
+  margin-bottom: 2%;
+  margin-left: 2%;
+  min-width: 132px;
+  width: 48%;
+
+  &:last-child {
+    background-color: $base-color;
+  }
 
   p {
     margin: 0;
+  }
+
+  .icon-container {
+    float: left;
+    text-align: center;
+    width: 35%;
+
+    i {
+      color: $financial-life-color;
+      font-size: 35px;
+      padding: 5px;
+      position: relative;
+    }
+
+    .icon-hand-o-right {
+      color: $white;
+    }
+
+    .icon-calculator,
+    .icon-bar-chart {
+
+      &:after {
+        content:"2";
+        color: $white;
+        background-color: $accent-color;
+        border-radius: 50%;
+        display: block;
+        font-size: 13px;
+        height: 15px;
+        left: 34px;
+        position: absolute;
+        text-align: center;
+        top: -3px;
+        width: 15px;
+      }
+    }
+
+    .icon-bar-chart {
+
+      &:after {
+        content: "7";
+      }
+    }
+  }
+
+  .data-container {
+    float: left;
+    width: 65%;
   }
 }
 

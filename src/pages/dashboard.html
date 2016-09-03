@@ -64,29 +64,29 @@
 </header>
 <main class="finance">
   <div class="row">
-    <div class="small-9 columns">
+    <div class="small-12 medium-9 columns">
         <h1>Finance life stream</h1>
     </div>
-    <div class="small-3 columns finance__add">
+    <div class="small-12 medium-3 columns finance__add">
       <p class="finance__add__title">Add</p>
       <button class="btn-bank">bank</button>
       <button class="btn-payment">payment</button>
     </div>
   </div>
   <div class="row">
-    <div class="small-3 columns">
+    <div class="small-12 medium-3 columns">
       <p class="finance__data-title">Balance</p>
       <p class="finance__data-amount" id="dashboard-balance"></p><span> PLN</span>
     </div>
-    <div class="small-3 columns">
+    <div class="small-12 medium-3  columns">
       <p class="finance__data-title">Available funds</p>
       <p class="finance__data-amount" id="dashboard-availabe-founds"></p><span> PLN</span>
     </div>
-    <div class="small-3 columns">
+    <div class="small-12 medium-3 columns">
       <p class="finance__data-title">Schedule payments</p>
       <p class="finance__data-amount" id="dashboard-payments"></p><span> PLN</span>
     </div>
-    <div class="small-3 columns account-analysis__container">
+    <div class="small-12 medium-3 columns account-analysis__container">
       <p class="account-analysis">Account analysis</p>
       <div class="on-off-container">
         <button class="btn-off">off</button>
@@ -95,37 +95,57 @@
     </div>
   </div>
   <div class="row">
-    <div class="small-6 columns products">
+    <div class="small-12 medium-6 columns products">
       <p>Products</p>
       <div class="product-container">
         <div class="products-container product-container__wallets">
-          <i class="fa fa-briefcase" aria-hidden="true"></i>
-          <p id="wallets"></p>
-          <p id="wallets-amounts"></p>
+          <div class="icon-container">
+            <i class="fa fa-briefcase" aria-hidden="true"></i>
+          </div>
+          <div class="data-container">
+            <p id="wallets"></p>
+            <p id="wallets-amounts"></p>
+          </div>
         </div>
         <div class="products-container product-container__deposits">
-          <i class="fa fa-calculator" aria-hidden="true"></i>
-          <p id="deposits"></p>
-          <p id="deposits-amounts"></p>
+          <div class="icon-container">
+            <i class="fa fa-calculator icon-calculator" aria-hidden="true"></i>
+          </div>
+          <div class="data-container">
+            <p id="deposits"></p>
+            <p id="deposits-amounts"></p>
+          </div>
         </div>
         <div class="products-container product-container__accounts">
-          <i class="fa fa-money" aria-hidden="true"></i>
-          <p id="accounts"></p>
-          <p id="accounts-amounts"></p>
+          <div class="icon-container">
+            <i class="fa fa-money" aria-hidden="true"></i>
+          </div>
+          <div class="data-container">
+            <p id="accounts"></p>
+            <p id="accounts-amounts"></p>
+          </div>
         </div>
         <div class="products-container product-container__founds">
-          <i class="fa fa-bar-chart" aria-hidden="true"></i>
-          <p id="funds"></p>
-          <p id="funds-amounts"></p>
+          <div class="icon-container">
+            <i class="fa fa-bar-chart icon-bar-chart" aria-hidden="true"></i>
+          </div>
+          <div class="data-container">
+            <p id="funds"></p>
+            <p id="funds-amounts"></p>
+          </div>
         </div>
         <div class="products-container product-container__loans">
-          <i class="fa fa-hand-o-right" aria-hidden="true"></i>
-          <p id="loans"></p>
-          <p id="loans-amounts"></p>
+          <div class="icon-container">
+            <i class="fa fa-hand-o-right icon-hand-o-right" aria-hidden="true"></i>
+          </div>
+          <div class="data-container">
+            <p id="loans"></p>
+            <p id="loans-amounts"></p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="small-6 columns">
+    <div class="small-12 medium-6 columns">
       <p>History</p>
       <div class="history-outside">
         <ul id="history-list">
