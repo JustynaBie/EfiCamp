@@ -96,21 +96,27 @@ $(document).on("ready",function(){
 
   takeData(currentUrl, "products", function(response) {
     let products = response.content;
-    $("#wallets").text(products[0].type + ' [' + products[0].elements + ']');
-    $("#wallets-amounts").text(products[0].amount + products[0].currency);
-
-    $("#deposits").text(products[1].type + ' [' + products[1].elements + ']');
-    $("#deposits-amounts").text(products[1].amount + products[1].currency);
-
-    $("#accounts").text(products[2].type);
-    $("#accounts-amounts").text(products[2].amount + products[2].currency);
-
-    $("#funds").text(products[3].type + ' [' + products[3].elements + ']');
-    $("#funds-amounts").text(products[3].amount + products[3].currency);
-
-    $("#loans").text(products[4].type);
-    $("#loans-amounts").text(products[4].amount + products[4].currency);
+    products.forEach(displayProductsData);
   });
+
+  function displayProductsData(product){
+    let dataContainers = Array.prototype.slice.call($(".data-container"));
+    let firstText;
+    let amountFormated = sortNumber(product.amount);
+    let isAccount = product.type === 'Accounts';
+    let isLoan = product.type === 'Bank loans';
+
+    let dataContainer = dataContainers
+                          .filter(container => product.type === container.dataset.type)
+                          .reduce(container => container);
+
+    firstText = !isAccount && !isLoan ? product.type + ' [' + product.elements + ']' : product.type;
+
+    amountFormated = isLoan ? "- " + amountFormated : amountFormated;
+
+    dataContainer.firstElementChild.innerHTML = firstText;
+    dataContainer.lastElementChild.innerHTML = amountFormated + product.currency;
+  };
 
   function takeData(currentUrl, urlId, callback ){
     $.ajax({
@@ -129,7 +135,6 @@ $(document).on("ready",function(){
   takeData(currentUrl, "history", function(response) {
     let historyData = (response.content);
     historyData.forEach(makeHistoryRecord);
-    console.log(historyData);
   });
 
 
@@ -170,18 +175,6 @@ $(document).on("ready",function(){
     let day = date.substring(8,10);
     return day + '.' + month;
   }
-//
-//   let transaction1 = {
-//     date: "2068-07-08",
-//     description: "solaisodnsf",
-//     category: "Gas",
-//     currency: "EUR",
-//     amount: 98,
-//     status: "outcome"
-//   };
-//
-// makeHistoryRecord(transaction1);
-
 
   // Sort number
   function sortNumber(input){
