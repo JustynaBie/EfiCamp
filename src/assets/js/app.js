@@ -1,4 +1,4 @@
-$(document).foundation()
+$(document).foundation();
 $(document).on("ready",function(){
 
   // Login panel variables
@@ -151,7 +151,7 @@ $(document).on("ready",function(){
     let amountContainer = $("<div class='history__container history__amount'></div>");
     let ifOutcome = $("<span></span>");
     let amountP = $("<span></span>").text(convertedCurrency);
-    let currencySpan = $("<span></span>").text(transactionData.currency);
+    let currencySpan = $("<span></span>").html("&nbsp;" + transactionData.currency);
 
     if (transactionData.status === "outcome") {
       ifOutcome.text("-");

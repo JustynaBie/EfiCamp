@@ -1,0 +1,26 @@
+.budget-chart {
+  border-radius: 50%;
+  border: 30px solid red;
+  display: inline-flex;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+
+  &:nth-child(2){
+    border-color: yellow;
+  }
+
+  &:nth-child(3){
+    border-color: green;
+  }
+
+  &:nth-child(4){
+    border-color: pink;
+  }
+
+  &:nth-child(5){
+    border-color: blue;
+  }
+
+}
